@@ -60,7 +60,7 @@ try {
                 $PrinterSharePath = "\\" + ($server).split(".")[0] + "\" + $Printer.sharename
 
                 Write-Host $PrinterSharePath | Out-File -FilePath $LogPath -Encoding utf8 -Append -ErrorAction Stop
-                $Arguments = "/printer $PrinterSharePath /Grant=$Group=F"
+                $Arguments = "/printer $PrinterSharePath /Grant=$Group=$Permission"
                 Start-Process -FilePath $subinacl -ArgumentList $Arguments -Wait -ErrorAction Stop
             }
         }
